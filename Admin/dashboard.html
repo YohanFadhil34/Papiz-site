@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pawon Pami</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #34495e;
+            color: #fff;
+            width: 250px;
+            padding: 20px;
+        }
+
+        .sidebar .logo img {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar nav ul li a:hover {
+            background-color: #f39c12;
+            /* Warna hover */
+        }
+
+        .sidebar nav ul li a.active {
+            background-color: #f39c12;
+            /* Warna aktif */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #34495e;
+            color: #fff;
+            width: 250px;
+            padding: 20px;
+        }
+
+        .sidebar .logo img {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar nav ul li a:hover {
+            background-color: #f39c12;
+            /* Warna hover */
+        }
+
+        .sidebar nav ul li a.active {
+            background-color: #f39c12;
+            /* Warna aktif */
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #ecf0f1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info span {
+            margin-right: 10px;
+        }
+
+        /* Styling for Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 cards dalam satu baris */
+            gap: 20px;
+            /* Jarak antar cards */
+            margin: 20px 0;
+        }
+
+        .card {
+            background-color: #fff;
+            /* Warna latar belakang putih */
+            border-radius: 10px;
+            /* Membuat sudut card membulat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Efek bayangan */
+            padding: 20px;
+            /* Ruang dalam card */
+            text-align: center;
+            /* Teks di tengah */
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+            /* Animasi efek hover */
+            border: 1px solid #f0f0f0;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            /* Ukuran font judul */
+            margin-bottom: 10px;
+            /* Jarak antara judul dan angka */
+            color: #333;
+            /* Warna teks */
+        }
+
+        .card p {
+            font-size: 24px;
+            /* Ukuran font angka */
+            font-weight: bold;
+            /* Membuat angka tebal */
+            color: #4caf50;
+            /* Warna hijau untuk angka */
+        }
+
+        /* Efek hover untuk card */
+        .card:hover {
+            transform: translateY(-10px);
+            /* Menggerakkan card ke atas saat di-hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* Membuat bayangan lebih tebal saat di-hover */
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .info-cards {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 card dalam satu baris */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .info-cards {
+                grid-template-columns: 1fr;
+                /* 1 card dalam satu baris di layar kecil */
+            }
+        }
+
+        /* Charts */
+        .charts {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .chart {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        /* Recent Orders */
+        .recent-orders {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .recent-orders table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .recent-orders table th,
+        .recent-orders table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .recent-orders table th {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        .recent-orders table tbody tr:nth-child(even) {
+            background-color: #f4f4f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="../../asset/img/logo/mentah.png" alt="Logo Pawon Pami" width="150">
+                <h2>Pawon Pami</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="pesanan.html">Pesanan</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="pengiriman.html">Pengiriman</a></li>
+                    <li><a href="laporan.html">Laporan</a></li>
+                    <li><a href="pengaturan.html">Pengaturan</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Selamat Datang di Dashboard Pawon Pami 🍽</h1>
+                <div class="user-info">
+                    <span>Halo, Admin</span>
+                    <i class="bi bi-person-circle"></i>
+                </div>
+            </header>
+
+            <!-- Cards Informasi -->
+            <div class="info-cards">
+                <div class="card">
+                    <h3>Total Pesanan</h3>
+                    <p>150</p>
+                </div>
+                <div class="card">
+                    <h3>Pesanan Dalam Proses</h3>
+                    <p>30</p>
+                </div>
+                <div class="card">
+                    <h3>Total Pengiriman</h3>
+                    <p>120</p>
+                </div>
+                <div class="card">
+                    <h3>Menu Tersedia</h3>
+                    <p>25</p>
+                </div>
+            </div>
+
+            <!-- Grafik Statistik -->
+            <div class="charts">
+                <div class="chart" id="orderChart">
+                    <h3>Grafik Pesanan Bulanan</h3>
+                    <canvas id="orderChartCanvas"></canvas>
+                </div>
+                <div class="chart" id="salesChart">
+                    <h3>Grafik Penjualan</h3>
+                    <canvas id="salesChartCanvas"></canvas>
+                </div>
+            </div>
+
+
+            <!-- Tabel Pesanan Terbaru -->
+            <div class="recent-orders">
+                <h3>Pesanan Terbaru</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Menu</th>
+                            <th>Status</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Agus Rahman</td>
+                            <td>Paket A</td>
+                            <td>Dalam Proses</td>
+                            <td>01/10/2024</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Siti Nurhaliza</td>
+                            <td>Paket B</td>
+                            <td>Dikirim</td>
+                            <td>02/10/2024</td>
+                        </tr>
+                        <!-- Tambahkan pesanan lainnya -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+
+    // Data untuk grafik pesanan bulanan
+    const ctxOrder = document.getElementById('orderChartCanvas').getContext('2d');
+    const orderChart = new Chart(ctxOrder, {
+        type: 'line', // Tipe grafik, bisa juga diganti 'bar', 'pie', dll.
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'], // Label untuk sumbu X
+            datasets: [{
+                label: 'Jumlah Pesanan',
+                data: [10, 20, 30, 40, 35, 45, 50, 60, 70, 80, 90, 100], // Data pesanan bulanan
+                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Warna latar belakang area grafik
+                borderColor: 'rgba(75, 192, 192, 1)', // Warna garis grafik
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Data untuk grafik penjualan
+    const ctxSales = document.getElementById('salesChartCanvas').getContext('2d');
+    const salesChart = new Chart(ctxSales, {
+        type: 'bar', // Tipe grafik
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'], // Label sumbu X
+            datasets: [{
+                label: 'Pendapatan Penjualan (Rp)',
+                data: [500000, 700000, 1000000, 900000, 1200000, 1100000, 1300000, 1400000, 1500000, 1600000, 1700000, 1800000], // Data penjualan
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // Warna latar belakang bar
+                borderColor: 'rgba(255, 99, 132, 1)', // Warna border bar
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
+
+</html>

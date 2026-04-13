@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pawon Pami</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ecf0f1;
+            margin: 0;
+            display: flex;
+        }
+
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #34495e;
+            color: #fff;
+            width: 250px;
+            padding: 20px;
+        }
+
+        .sidebar .logo img {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar nav ul li a:hover,
+        .sidebar nav ul li a.active {
+            background-color: #f39c12;
+            /* Hover and active color */
+        }
+
+        /* Menu Section Styles */
+        .menu-section {
+            margin: 20px;
+            flex-grow: 1;
+            /* Allow the menu section to grow */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu-header h2 {
+            font-size: 24px;
+            /* Title font size */
+            color: #34495e;
+            /* Title color */
+        }
+
+        .menu-header p {
+            font-size: 16px;
+            /* Description font size */
+            color: #666;
+            /* Description color */
+            margin-bottom: 10px;
+        }
+
+        .btn-add-menu {
+            background-color: #f39c12;
+            /* Button color */
+            color: #fff;
+            /* Text color */
+            padding: 10px 20px;
+            /* Button padding */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Rounded button */
+            text-decoration: none;
+            /* Remove underline */
+            font-size: 16px;
+            /* Button font size */
+            transition: background-color 0.3s;
+            /* Transition effect */
+            display: inline-block;
+            /* Center button */
+        }
+
+        .btn-add-menu:hover {
+            background-color: #e67e22;
+            /* Hover color */
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            /* Responsive columns */
+            gap: 20px;
+            /* Space between menu items */
+        }
+
+        .menu-card {
+            background-color: #f4f4f9;
+            /* Card background color */
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Shadow */
+            overflow: hidden;
+            /* Prevent content overflow */
+            text-align: center;
+            /* Center text */
+            transition: transform 0.3s;
+            /* Animation effect */
+        }
+
+        .menu-card img {
+            width: 100%;
+            /* Full width image */
+            height: 150px;
+            /* Fixed height for image */
+            object-fit: cover;
+            /* Maintain aspect ratio */
+        }
+
+        .menu-card h3 {
+            font-size: 18px;
+            /* Item name font size */
+            margin: 10px 0;
+            /* Margin */
+            color: #333;
+            /* Text color */
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            /* Description font size */
+            color: #666;
+            /* Text color */
+            padding: 0 10px;
+            /* Horizontal padding */
+        }
+
+        .menu-price {
+            display: flex;
+            justify-content: space-between;
+            /* Space between price and button */
+            align-items: center;
+            /* Center alignment */
+            padding: 10px 15px;
+            /* Padding */
+            background-color: #fff;
+            /* White background for price section */
+            border-top: 1px solid #ddd;
+            /* Divider line */
+        }
+
+        .menu-price span {
+            font-size: 20px;
+            /* Price font size */
+            font-weight: bold;
+            /* Bold price */
+            color: #4caf50;
+            /* Green price color */
+        }
+
+        .btn-order {
+            background-color: #3498db;
+            /* Order button color */
+            color: #fff;
+            /* Button text color */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Rounded corners */
+            padding: 8px 15px;
+            /* Button padding */
+            cursor: pointer;
+            /* Pointer cursor */
+            transition: background-color 0.3s;
+            /* Transition effect */
+        }
+
+        .btn-order:hover {
+            background-color: #2980b9;
+            /* Hover color */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .menu-card {
+                margin: 0;
+                /* Remove margin */
+                /* You can also adjust the image height here if needed */
+            }
+
+            .btn-add-menu {
+                width: 100%;
+                /* Full width button */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="../../asset/img/logo/mentah.png" alt="Logo Pawon Pami">
+                <h2>Pawon Pami</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="pesanan.html">Pesanan</a></li>
+                    <li><a href="#" class="active">Menu</a></li>
+                    <li><a href="pengiriman.html">Pengiriman</a></li>
+                    <li><a href="laporan.html">Laporan</a></li>
+                    <li><a href="pengaturan.html">Pengaturan</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Menu Section -->
+        <div class="menu-section">
+            <header class="menu-header">
+                <h2>Daftar Menu</h2>
+                <p>Kelola dan tambahkan menu Anda dengan mudah</p>
+                <a href="add-menu.html" class="btn-add-menu">Tambah Menu</a>
+            </header>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="../../asset/img/produk/cilok.jpg" alt="Menu Item 1">
+                    <h3>Menu Item 1</h3>
+                    <p>Deskripsi singkat tentang Menu Item 1.</p>
+                    <div class="menu-price">
+                        <span>Rp 25.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="../../asset/img/produk/rica bebek.jpeg" alt="Menu Item 2">
+                    <h3>Menu Item 2</h3>
+                    <p>Deskripsi singkat tentang Menu Item 2.</p>
+                    <div class="menu-price">
+                        <span>Rp 30.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="../../asset/img/produk/pepes ikan.jpg" alt="Menu Item 3">
+                    <h3>Menu Item 3</h3>
+                    <p>Deskripsi singkat tentang Menu Item 3.</p>
+                    <div class="menu-price">
+                        <span>Rp 28.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="../../asset/img/produk/sayur asem.jpg" alt="Menu Item 4">
+                    <h3>Menu Item 4</h3>
+                    <p>Deskripsi singkat tentang Menu Item 4.</p>
+                    <div class="menu-price">
+                        <span>Rp 22.000</span>
+                        <button class="btn-order">Pesan</button>
+                    </div>
+                </div>
+                <!-- Tambahkan lebih banyak menu di sini -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

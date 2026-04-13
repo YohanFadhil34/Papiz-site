@@ -1,0 +1,318 @@
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #ff7777 30%, #ffaaaa 50%, #ff6f61 100%);
+    /* Gradasi dari warna merah muda ke merah tua dengan arah diagonal */
+    background-attachment: fixed; /* Latar belakang tetap saat scroll */
+    background-size: cover;
+    color: #fff; /* Warna teks putih untuk kontras yang lebih baik */
+}
+
+/* Sidebar */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -450px; /* Sembunyikan sidebar di luar tampilan */
+    width: 350px;
+    height: 100%;
+    background-color: #d1a206; /* Warna latar belakang sidebar */
+    color: white;
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek 3D */
+}
+
+.sidebar.active {
+    right: 0; /* Tampilkan sidebar */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    text-align: center;
+    border-bottom: 2px solid white; /* Garis bawah untuk heading */
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #ffeb3b; /* Warna saat hover */
+}
+
+.sidebar .header {
+    display: flex;
+    align-items: center; /* Membuat gambar dan teks sejajar secara vertikal */
+}
+
+.sidebar .header img {
+    margin: 0;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Bayangan untuk efek 3D */
+    transition: background 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background: #ff3b30; /* Warna saat hover */
+}
+
+/* Landing */
+.hero {
+    height: 100vh; /* Full height section */
+    background: url("../asset/img/bg.jpg") no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    transition: background 1s ease-in-out; /* Smooth transition when the background changes */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+    position: relative;
+    font-size: 4em;
+    margin: 0;
+    padding: 0;
+}
+
+.hero p {
+    position: relative;
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.services,
+.testimonials,
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.services h2,
+.testimonials h2,
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.services .service-item,
+.testimonials .testimonial-item {
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    width: calc(33% - 40px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.services .service-item:hover,
+.testimonials .testimonial-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.services img,
+.testimonials img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* Contact Section */
+/* Contact Section */
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Memberikan jarak antara info dan form */
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    width: 40%; /* Lebar untuk info kontak */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    width: 55%; /* Lebar untuk form pesan */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info p {
+    margin: 15px 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.contact-info a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff6f61;
+    outline: none;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #ff3b30;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column; /* Elemen akan menumpuk pada layar kecil */
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%; /* Lebar penuh pada tampilan mobile */
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer-about p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ff6f61;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #ff3b30;
+}
+
+.footer-social a {
+    margin: 0 10px;
+}
+
+.footer-social img {
+    transition: transform 0.3s ease;
+}
+
+.footer-social a:hover img {
+    transform: scale(1.8);
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #bbb;
+}

@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 10px;
+}
+
+/* Styling for Cards */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards dalam satu baris */
+    gap: 20px; /* Jarak antar cards */
+    margin: 20px 0;
+}
+
+.card {
+    background-color: #fff; /* Warna latar belakang putih */
+    border-radius: 10px; /* Membuat sudut card membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    padding: 20px; /* Ruang dalam card */
+    text-align: center; /* Teks di tengah */
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease; /* Animasi efek hover */
+    border: 1px solid #f0f0f0;
+}
+
+.card h3 {
+    font-size: 18px; /* Ukuran font judul */
+    margin-bottom: 10px; /* Jarak antara judul dan angka */
+    color: #333; /* Warna teks */
+}
+
+.card p {
+    font-size: 24px; /* Ukuran font angka */
+    font-weight: bold; /* Membuat angka tebal */
+    color: #4caf50; /* Warna hijau untuk angka */
+}
+
+/* Efek hover untuk card */
+.card:hover {
+    transform: translateY(-10px); /* Menggerakkan card ke atas saat di-hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Membuat bayangan lebih tebal saat di-hover */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .info-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 card dalam satu baris */
+    }
+}
+
+@media (max-width: 600px) {
+    .info-cards {
+        grid-template-columns: 1fr; /* 1 card dalam satu baris di layar kecil */
+    }
+}
+
+/* Charts */
+.charts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.chart {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+/* Recent Orders */
+.recent-orders {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.recent-orders table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recent-orders table th,
+.recent-orders table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.recent-orders table th {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.recent-orders table tbody tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
